@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Event Hub{% endblock %}</title>
+    <link rel="stylesheet" href="/static/main.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-logo" href="/">{{ title }}</a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/">Home</a>
+          <a href="/events">Events</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">{% block content %}{% endblock %}</main>
+
+    <footer class="site-footer">
+      <p>Event Hub — server builds the page</p>
+
+      {% block footer %}No Footer Block given.{% endblock %}
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.njk" %}
+{% import "macros/event-card.njk" as eventCard %}
+
+{% block content %}
+  <h1>Welcome to Event Hub</h1>
+
+  <div class="event-grid">
+    {% for event in events %}
+      {{ eventCard.eventCard(event.name, event.date, event.location, event.soldOut, event.featured) }}
+    {% else %}
+      <p>No events scheduled.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

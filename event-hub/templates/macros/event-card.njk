@@ -1,0 +1,25 @@
+{% macro eventCard(name, date, location, soldOut=false, featured=false) %}
+  <article class="event-card {% if soldOut %}event-card--sold-out{% endif %}">
+    {% if featured %}
+      <span class="badge badge--featured">Featured</span>
+    {% endif %}
+
+    <div class="event-card__badges">
+      {% if featured %}
+        <span class="badge badge--featured">Featured</span>
+      {% endif %}
+      {% if soldOut %}
+        <span class="badge badge--sold-out">Sold out</span>
+      {% else %}
+        <span class="badge badge--available">Tickets available</span>
+      {% endif %}
+    </div>
+
+    <h4 class="event-card__title">{{ name }}</h4>
+
+    <p class="event-card__meta">
+      {{ date }} <br />
+      {{ location }}
+    </p>
+  </article>
+{% endmacro %}
