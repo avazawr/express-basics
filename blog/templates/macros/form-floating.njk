@@ -1,0 +1,32 @@
+{% macro formFloating(id, type, placeholder, label) %}
+  <div class="form-floating">
+    {% if type === "textarea" %}
+      <textarea
+        class="form-control"
+        id="{{ id }}"
+        placeholder="{{ placeholder }}"
+        style="height: 12rem"
+        data-sb-validations="required"
+      ></textarea>
+    {% else %}
+      <input
+        class="form-control"
+        id="{{ id }}"
+        type="{{ type }}"
+        placeholder="{{ placeholder }}"
+        data-sb-validations="required"
+      />
+    {% endif %}
+
+    <label for="name">{{ label }}</label>
+    <div class="invalid-feedback" data-sb-feedback="{{ id }}:required">
+      A {{ label }} is required.
+    </div>
+
+    {% if type === "email" %}
+      <div class="invalid-feedback" data-sb-feedback="{{ id }}:email">
+        Email is not valid.
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
